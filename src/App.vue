@@ -35,6 +35,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/select"> Select </a></li>
               <li><a class="dropdown-item" href="/modal"> Modal </a></li>
+              <li><a class="dropdown-item" href="/manage"> Manage </a></li>
               <li><hr class="dropdown-divider" /></li>
               <li>
                 <a class="dropdown-item" href="/"> Logout </a>
@@ -57,8 +58,22 @@
             type="search"
             placeholder="Search"
             aria-label="Search"
+            v-model="topic"
           />
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn" type="button" @click="searchTopic">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20px"
+              height="20px"
+              fill="currentColor"
+              class="bi bi-search"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+              />
+            </svg>
+          </button>
         </form>
       </div>
     </div>
@@ -139,15 +154,25 @@
 <script>
 export default {
   name: "App",
-  data(){
-    return{
-      route: ''
-    }
+  data() {
+    return {
+      route: "",
+      topic: ""
+    };
   },
   components: {},
-  computed:{
-    routeJudge(){
-      return this.$route.fullPath != '/login' && this.$route.fullPath != '/';
+  computed: {
+    routeJudge() {
+      return this.$route.fullPath != "/login" && this.$route.fullPath != "/";
+    },
+  },
+  methods:{
+    searchTopic(){
+      const routArray = this.$router.options.routes;
+      const targetRouteIndex = routArray.findIndex(e => e.name.toLowerCase() === this.topic.toLowerCase());
+      if(targetRouteIndex >= 0){
+        this.$router.push('/' + routArray[targetRouteIndex].name)
+      }
     }
   }
 };
@@ -169,8 +194,7 @@ footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
-svg{
+svg {
   color: black;
 }
-
 </style>

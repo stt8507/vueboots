@@ -6,6 +6,7 @@ import Select from './components/Select.vue'
 import Modal from './components/Modal.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
+import Manage from './components/Manage.vue'
 
 export default createRouter({
   history : createWebHistory(),
@@ -44,6 +45,11 @@ export default createRouter({
       path: '/register',
       name: 'register', 
       component: Register
+    },
+    {
+      path: '/manage',
+      name: 'Manage', 
+      component: Manage
     },
   ]
 })
