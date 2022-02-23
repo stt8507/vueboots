@@ -166,7 +166,8 @@
           >
             Close
           </button>
-          <button type="button" class="btn btn-primary" @click="checkForm">
+          <!-- 因為未實作後端,這裡先建立data-bs-dismiss="modal" -->
+          <button type="button" class="btn btn-primary" @click="checkForm" data-bs-dismiss="modal"> 
             Save changes
           </button>
         </div>
@@ -237,11 +238,12 @@ export default {
   methods: {
     async checkForm() {
       this.submitted = true;
-      const isFormCorrect = await this.v$.$validate();
-
+      const isFormCorrect = await this.v$.registerForm.$validate();
+      
       if (isFormCorrect) {
-        this.$router.push("/");
+        //this.$router.push("/");
       }
+      
     },
   },
 };

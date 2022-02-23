@@ -38,9 +38,7 @@
                       >Email field is required</span
                     >
                     <span
-                      v-else-if="
-                        v$.loginForm.email.email.$invalid
-                      "
+                      v-else-if="v$.loginForm.email.email.$invalid"
                       >Email field has an error.</span
                     >
                   </div>
@@ -105,8 +103,8 @@ export default {
   },
   methods: {
     async login() {
-      const isFormCorrect = await this.v$.$validate();
-
+      
+      const isFormCorrect = await this.v$.loginForm.$validate(); // 不使用this.v$.$validate(),是因為會檢測到registerForm
       if (isFormCorrect) {
         this.$router.push("/home");
       }
