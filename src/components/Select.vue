@@ -108,34 +108,87 @@
   </div>
   <div class="container">
     <table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+    <!--Section: Reply-->
+    <section>
+      <div
+        class="
+          shadow-4
+          bg-white
+          rounded-5
+          mb-5
+          overflow-hidden
+          px-4
+          py-3
+          d-lg-flex
+          justify-content-between
+          align-items-center
+          text-center text-lg-start
+        "
+      >
+        <div class="mb-2 mb-lg-0">
+          <h5 class="mb-2 fw-bold">Welcome to MDB Snippets</h5>
+          <p class="text-muted mb-0">
+            Best source of Bootstrap code examples, templates &amp; plugins
+          </p>
+        </div>
+
+        <form
+          class="d-flex"
+          method="GET"
+          style="min-width: 300px"
+          action="/snippets"
+        >
+          <input
+            type="search"
+            name="search"
+            class="form-control rounded"
+            placeholder="Search snippet"
+            aria-label="Search"
+            aria-describedby="search-addon"
+            value=""
+          />
+
+          <input type="top" name="top" value="all" style="display: none" />
+
+          <button
+            class="btn btn-link btn-rounded px-3 text-reset ms-2"
+            role="button"
+            type="submit"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+    <!--Section: Reply-->
   </div>
 </template>
 

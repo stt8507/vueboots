@@ -3,7 +3,8 @@
     <div class="mx-auto mt-5">
         <h1>Manage User</h1>
     </div>
-  <!--Section: Sales Performance KPIs-->
+    
+  <!--Section: User Information-->
     <section class="mb-4 mt-5">
       <div class="card">
         <div class="card-header text-center py-3">
