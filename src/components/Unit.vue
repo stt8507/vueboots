@@ -194,11 +194,14 @@
 
 <script>
 import * as bootstrap from "bootstrap";
+
 export default {
-  name: "select",
+  name: "unit",
   components: {},
   data() {
-    return { myoption: "" };
+    return {
+      myoption: "",
+    };
   },
   methods: {
     selectOption(e) {
@@ -221,6 +224,38 @@ export default {
     tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl);
     });
+  },
+  created() {
+    // 使用 Mock
+
+    var Mock = require("mockjs");
+    var data = Mock.mock({
+      // 属性 list 的值是一个数组，其中含有 1 到 10 个元素
+      "list|1-10": [
+        {
+          // 属性 id 是一个自增数，起始值为 1，每次增 1
+          "id|+1": 1,
+
+          name: "@name", //隨機名稱
+
+          nickName: "@last", //隨機暱稱
+
+          phone: /^1[34578]\d{9}$/, //隨機電話號碼
+
+          "age|11-99": 1, //年齡
+
+          address: "@county(true)", //隨機地址
+
+          email: "@email", //隨機郵箱
+
+          isMale: "@boolean", //隨機性別
+
+          createTime: "@datetime", //建立時間
+        },
+      ],
+    });
+    // 输出结果
+    console.log(JSON.stringify(data, null, 4));
   },
 };
 </script>

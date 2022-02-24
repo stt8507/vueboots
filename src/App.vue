@@ -33,7 +33,7 @@
               Dropdown
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/select"> Select </a></li>
+              <li><a class="dropdown-item" href="/unit"> Unit </a></li>
               <li><a class="dropdown-item" href="/modal"> Modal </a></li>
               <li><a class="dropdown-item" href="/manage"> Manage </a></li>
               <li><hr class="dropdown-divider" /></li>

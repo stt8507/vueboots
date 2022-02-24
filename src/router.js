@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import Home from './components/Home.vue'
 import About from './components/About.vue'
-import Select from './components/Select.vue'
+import Unit from './components/Unit.vue'
 import Modal from './components/Modal.vue'
 import Login from './components/Login.vue'
 import Register from './components/Register.vue'
@@ -22,9 +22,9 @@ export default createRouter({
       component: About
     },
     {
-        path: '/select',
-        name: 'select',
-        component: Select
+        path: '/unit',
+        name: 'unit',
+        component: Unit
     },
     {
       path: '/modal',
