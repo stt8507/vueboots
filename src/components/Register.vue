@@ -2,11 +2,11 @@
   <!-- Button trigger modal -->
   <button
     type="button"
-    class="text-white-50 fw-bold"
+    :class="btnClass"
     data-bs-toggle="modal"
     data-bs-target="#exampleModal"
   >
-    Sign Up
+    {{btnVal}}
   </button>
   <!-- Modal -->
   <div
@@ -36,7 +36,7 @@
               <input
                 type="email"
                 v-model="registerForm.email"
-                id="email"
+                :id="emailId"
                 name="email"
                 class="form-control"
                 :class="{
@@ -60,7 +60,7 @@
               <input
                 type="password"
                 v-model="registerForm.password"
-                id="password"
+                :id="passwordId"
                 name="password"
                 class="form-control"
                 :class="{
@@ -87,7 +87,7 @@
               <input
                 type="password"
                 v-model="registerForm.confirmPassword"
-                id="confirmPassword"
+                :id="confirmPasswordId"
                 name="confirmPassword"
                 class="form-control"
                 :class="{
@@ -118,7 +118,7 @@
                   type="radio"
                   value="M"
                   v-model="registerForm.sex"
-                  id="male"
+                  :id="maleId"
                   name="sex"
                   class="form-check-input"
                 />
@@ -129,7 +129,7 @@
                   type="radio"
                   value="F"
                   v-model="registerForm.sex"
-                  id="female"
+                  :id="femaleId"
                   name="sex"
                   class="form-check-input"
                 />
@@ -189,6 +189,7 @@ export default {
   name: "Register",
   props: {
     src: String,
+    id: Number
   },
   setup() {
     return { v$: useVuelidate() };
@@ -196,6 +197,8 @@ export default {
   data() {
     return {
       title: "",
+      btnVal: "",
+      btnClass: "",
       registerForm: {
         email: "",
         password: "",
@@ -208,10 +211,33 @@ export default {
   },
   mounted() {
     if (this.src === "signUp") {
+      this.btnVal = "Sign Up";
+      this.btnClass = "text-white-50 fw-bold"
       return (this.title = "註冊會員");
     } else if (this.src === "updateMember") {
+      this.btnVal = "Update"
+      this.btnClass = "btn btn-primary m-1"
       return (this.title = "修改會員狀態");
     }
+  },
+  computed:{
+    emailId(){
+      return `email_` + this.id;
+    },
+    passwordId(){
+      return `password_` + this.id;
+    },
+    confirmPasswordId(){
+      return `confirmPasswordId_` + this.id;
+    },
+    maleId(){
+      return `maleId_` + this.id;
+    },
+    femaleId(){
+      return `femaleId_` + this.id;
+    },
+    
+
   },
   validations() {
     return {
